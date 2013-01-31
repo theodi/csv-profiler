@@ -38,48 +38,4 @@ class TestCsvProfiler < Test::Unit::TestCase
 	end
 
 
-#	def test_find_cell_value_type_float_0
-#		value = "0"
-#		assert(@cp.find_cell_value_type(value) == :numeric, "float 0: " + value.to_s + " was not a float")
-#	end
-
-#	def test_find_cell_value_type_float_1
-#		value = "0.623"
-#		assert(@cp.find_cell_value_type(value) == :numeric, "float 1: " + value.to_s + " was not a float")
-#	end
-
-	def test_find_cell_value_type_float_2
-		value = "-1.23"
-		assert(@cp.find_cell_value_type(value) == :numeric, "float 2: " + value.to_s + " was not a float")
-	end
-
-#	def test_find_cell_value_type_datetime_0
-#		assert(@cp.find_cell_value_type("13/11/2012 00:00") == :datetime, "test value was not a datetime")
-#	end
-
-	def test_find_cell_value_type_datetime_1
-		assert(@cp.find_cell_value_type("SW14 8SR") == :datetime, "test value was not a datetime")
-	end
-
-
-	def test_find_cell_value_type_string_0
-		value = "hello"
-		assert(@cp.find_cell_value_type(value) == :string, value + " was not a string")
-	end
-
-	def test_find_cell_value_type_string_1
-		value = "3 is the magic number"
-		assert(@cp.find_cell_value_type(value) == :string, value + " was not a string")
-	end
-
-	def test_find_cell_value_type_string_2
-		value = "123-124"
-		assert(@cp.find_cell_value_type(value) == :string, value + " was not a string")
-	end
-
-	def test_find_cell_value_type_string_3
-		value = "--123"
-		assert(@cp.find_cell_value_type(value) == :string, value + " was not a string")
-	end
-
 end
