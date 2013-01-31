@@ -6,7 +6,7 @@ require 'csv_profiler'
 class TestCsvProfiler < Test::Unit::TestCase
 
 	def setup
-		@cp = CsvProfiler.new("/home/tom/ruby/ppms-november-with-columns.csv")
+		@cp = CsvProfiler.new("tests/fixtures/ppms-november-with-columns-10000.csv")
 		@profile = @cp.profile
 	end
 	
