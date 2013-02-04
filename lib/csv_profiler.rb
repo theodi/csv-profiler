@@ -8,9 +8,6 @@ class CsvProfiler
 		@minCols = nil
 		@maxCols = nil
 		@empties = 0
-		#@numerics = 0
-		#@strings = 0
-		#@dates = 0
 	end
 	
 	def profile
@@ -38,16 +35,7 @@ class CsvProfiler
 			each.gsub! '"', '' if each[0] == '"' || each[-1] == '"'
 			each.strip!
 			# check whether each cell is empty
-			if each.empty?
-				@empties += 1
-			#else
-			#	case find_cell_value_type(each)
-			#	when :numeric
-			#		@numerics += 1
-			#	when :string
-			#		@strings += 1
-			#	end
-			end
+			@empties += 1 if each.empty?
 		end
 	end
 	

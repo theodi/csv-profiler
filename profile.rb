@@ -2,6 +2,11 @@
 
 require './lib/csv_profiler'
 
-csv = '/home/tom/ruby/ppms-november-with-columns.csv'
+csv = './tests/fixtures/ppms-november-with-columns-10000.csv'
 p = CsvProfiler.new(csv)
-p.profile
+
+# profile the input file
+results = p.profile
+results.each do | key, value |
+	puts key + ': ' + value.to_s
+end
