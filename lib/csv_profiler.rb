@@ -8,6 +8,7 @@ class CsvProfiler
 		@minCols = nil
 		@maxCols = nil
 		@empties = 0
+		@chars = {}
 	end
 	
 	def profile
@@ -30,14 +31,18 @@ class CsvProfiler
 		cols = line.split ","
 		@minCols = cols.length if @minCols.nil? || cols.length < @minCols
 		@maxCols = cols.length if @maxCols.nil? || cols.length > @maxCols
+		i = 0
 		cols.each do |each|
-			# cleanup quotes and whitespace
-			each.gsub! '"', '' if each[0] == '"' || each[-1] == '"'
-			each.strip!
-			# check whether each cell is empty
-			@empties += 1 if each.empty?
+			cell=cleanup_cell(each)
+			@empties += 1 if cell.empty?
+			i += 1
 		end
 	end
-	
+
+
+	def cleanup_cell(cell)
+			cell.gsub! '"', '' if cell[0] == '"' || cell[-1] == '"'
+			cell.strip
+	end
 
 end

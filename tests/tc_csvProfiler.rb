@@ -9,6 +9,14 @@ class TestCsvProfiler < Test::Unit::TestCase
 		@cp = CsvProfiler.new("tests/fixtures/ppms-november-with-columns-10000.csv")
 		@profile = @cp.profile
 	end
+
+	def test_output_cleanup_cell
+		dirty = '" foo bar "'
+		clean = 'foo bar'
+		assert_block('line not properly cleaned') {
+			true if @cp.cleanup_cell(dirty) == clean
+		}
+	end
 	
 	def test_return_is_hash
 		assert_instance_of( Hash, @profile )
