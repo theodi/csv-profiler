@@ -92,7 +92,6 @@ class CsvProfiler
 		@column_files.each do |key,value|
 			profile_column(value)
 		end
-		#profile_column(@column_files[4])
 	end
 
 
