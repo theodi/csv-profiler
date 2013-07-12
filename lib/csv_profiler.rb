@@ -75,10 +75,29 @@ class CsvProfiler
 		File.open(target_file, "a").write(cell_content + "\n").to_s
 	end
 
+
+	def profile_column(column_file)
+		puts column_file
+		chars = []
+		File.open(column_file) do |file|
+			file.each_line do |line|
+				chars = build_char_profile(chars,line.strip!)
+			end
+		end
+		puts chars.sort!.join
+	end
+
+
 	def profile_columns
 		@column_files.each do |key,value|
-			#puts "#{key} is #{value}"
+			profile_column(value)
 		end
+		#profile_column(@column_files[4])
+	end
+
+
+	def build_char_profile(chars,cell)
+		cell.split("").uniq.concat(chars).uniq
 	end
 
 
