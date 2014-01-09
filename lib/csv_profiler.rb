@@ -77,14 +77,14 @@ class CsvProfiler
 
 
 	def profile_column(column_file)
-		puts column_file
+		print column_file
 		chars = []
 		File.open(column_file) do |file|
 			file.each_line do |line|
 				chars = build_char_profile(chars,line.strip!)
 			end
 		end
-		puts chars.sort!.join
+		print ' | ' + chars.sort!.join + "\n"
 	end
 
 
@@ -98,6 +98,22 @@ class CsvProfiler
 	def build_char_profile(chars,cell)
 		cell.split("").uniq.concat(chars).uniq
 	end
+
+
+	def guess_datatype(char_profile)
+		regexes = {
+			"alphanumeric" => "[]"
+			"alpha" => "[]"
+			"purenumeric" => "[0-9\-\.]",
+			"variantnumeric" => "[]",
+			"yesno" => ""
+		}
+		
+		
+		
+		
+	end
+
 
 
 end
