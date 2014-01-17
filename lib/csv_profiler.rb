@@ -102,8 +102,8 @@ class CsvProfiler
 
 	def guess_datatype(char_profile)
 		regexes = {
-			"alphanumeric" => "[]"
-			"alpha" => "[]"
+			"alphanumeric" => "[]",
+			"alpha" => "[]",
 			"purenumeric" => "[0-9\-\.]",
 			"variantnumeric" => "[]",
 			"yesno" => ""
