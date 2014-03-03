@@ -6,7 +6,8 @@ csv = './tests/fixtures/ppms-november-with-columns-10000.csv'
 p = CsvProfiler.new(csv)
 
 # profile the input file
-results = p.profile
-results.each do | key, value |
+#p.read_file
+stats = p.get_stats
+stats.each do | key, value |
 	puts key + ': ' + value.to_s
 end

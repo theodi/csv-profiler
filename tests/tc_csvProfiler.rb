@@ -7,7 +7,7 @@ class TestCsvProfiler < Test::Unit::TestCase
 
 	def setup
 		@cp = CsvProfiler.new("tests/fixtures/ppms-november-with-columns-10000.csv")
-		@profile = @cp.profile
+		@profile = @cp.get_stats
 	end
 
 	def test_output_cleanup_cell
